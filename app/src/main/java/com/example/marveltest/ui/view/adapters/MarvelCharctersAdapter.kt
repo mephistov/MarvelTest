@@ -94,6 +94,8 @@ class MarvelViewHolder(
         binding.textViewName.text = model.name
         if (model.description != "")
             binding.textViewShortDescription.text =  model.description
+        else
+            binding.textViewShortDescription.text = context.getString(R.string.noData)
 
         Glide
             .with(context)

@@ -36,7 +36,9 @@ class MarvelViewModel @Inject constructor(
         viewModelScope.launch {
             isLoading.postValue(true)
             val result = getMarvelCharactersByIdUseCase.invoke(id)
-            characterModel.postValue(result.first())
+            if (!result.isNullOrEmpty()) {
+                characterModel.postValue(result.first())
+            }
             isLoading.postValue(false)
         }
     }

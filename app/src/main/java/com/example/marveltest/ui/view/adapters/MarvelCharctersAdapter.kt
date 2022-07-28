@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marveltest.R
-import com.example.marveltest.data.model.ResultCharacters
+import com.example.marveltest.core.adapters.BaseViewHolder
 import com.example.marveltest.databinding.RowChararcterBinding
 import com.example.marveltest.domain.model.MarvelCharacter
-import com.example.marveltest.ui.view.adapters.interfaze.RecyclerViewOnItemClickListener
+import com.example.marveltest.core.adapters.interfaze.RecyclerViewOnItemClickListener
 
 class MarvelCharctersAdapter(
     private val onItemClickListener: RecyclerViewOnItemClickListener<MarvelCharacter>? = null,

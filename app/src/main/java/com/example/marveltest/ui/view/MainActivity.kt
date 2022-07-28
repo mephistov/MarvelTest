@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marveltest.databinding.ActivityMainBinding
 import com.example.marveltest.domain.model.MarvelCharacter
 import com.example.marveltest.ui.view.adapters.MarvelCharctersAdapter
-import com.example.marveltest.ui.view.adapters.interfaze.RecyclerViewOnItemClickListener
+import com.example.marveltest.core.adapters.interfaze.RecyclerViewOnItemClickListener
 import com.example.marveltest.ui.viewmodel.MarvelViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewOnItemClickListener<Marvel
         marvelViewModel.getAllMarvelCharacters()
 
         marvelViewModel.charactersListModel.observe(this, Observer {
+            binding.textViewNodata.visibility = View.GONE
             adapter = MarvelCharctersAdapter(this,baseContext)
             adapter.listCharacters = it
             binding.list.adapter = adapter

@@ -1,4 +1,4 @@
-package com.example.marveltest.ui.view.adapters.interfaze
+package com.example.marveltest.core.adapters.interfaze
 
 interface RecyclerViewOnItemClickListener<in Model> {
     fun onClick(model: Model)

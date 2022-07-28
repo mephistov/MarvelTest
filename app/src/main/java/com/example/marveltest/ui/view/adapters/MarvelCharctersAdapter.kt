@@ -92,7 +92,8 @@ class MarvelViewHolder(
     override fun bindTo(model: MarvelCharacter) {
         marvelCharacter = model
         binding.textViewName.text = model.name
-        binding.textViewShortDescription.text = model.description
+        if (model.description != "")
+            binding.textViewShortDescription.text =  model.description
 
         Glide
             .with(context)

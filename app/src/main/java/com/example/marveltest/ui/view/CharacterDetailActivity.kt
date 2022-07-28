@@ -36,7 +36,8 @@ class CharacterDetailActivity : AppCompatActivity() {
         })
         marvelViewModel.characterModel.observe(this, Observer {
             binding.textView.text = it.name
-            binding.textView2.text = it.description
+            if (it.description != "")
+                binding.textView2.text = it.description
             Glide
                 .with(baseContext)
                 .load(it.thumnail)

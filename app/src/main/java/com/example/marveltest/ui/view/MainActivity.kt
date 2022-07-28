@@ -3,10 +3,12 @@ package com.example.marveltest.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.marveltest.databinding.ActivityMainBinding
 import com.example.marveltest.domain.model.MarvelCharacter
 import com.example.marveltest.ui.view.adapters.MarvelCharctersAdapter
@@ -20,23 +22,43 @@ class MainActivity : AppCompatActivity(), RecyclerViewOnItemClickListener<Marvel
     private lateinit var binding: ActivityMainBinding
     private val marvelViewModel: MarvelViewModel by viewModels()
     private lateinit var  adapter: MarvelCharctersAdapter
+    private var listCharactersTotal :ArrayList<MarvelCharacter> = ArrayList()
+    private var page = 0
+    private val LIMIT = 20
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        marvelViewModel.getAllMarvelCharacters()
+        marvelViewModel.getAllMarvelCharacters(page*LIMIT)
 
         marvelViewModel.charactersListModel.observe(this, Observer {
-            binding.textViewNodata.visibility = View.GONE
-            adapter = MarvelCharctersAdapter(this,baseContext)
-            adapter.listCharacters = it
-            binding.list.adapter = adapter
-            binding.list.layoutManager = LinearLayoutManager(baseContext)
+            if(listCharactersTotal.size == 0){
+                binding.textViewNodata.visibility = View.GONE
+                adapter = MarvelCharctersAdapter(this,baseContext)
+                listCharactersTotal.addAll(it as ArrayList<MarvelCharacter>)
+                adapter.listCharacters = listCharactersTotal
+                binding.list.adapter = adapter
+                binding.list.layoutManager = LinearLayoutManager(baseContext)
+            }else{
+                listCharactersTotal.addAll(it as ArrayList<MarvelCharacter>)
+                adapter.listCharacters = listCharactersTotal
+            }
+            page++
+
         })
         marvelViewModel.isLoading.observe(this, Observer {
             binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        })
+
+        binding.list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if(!recyclerView.canScrollVertically(1)) {
+                    marvelViewModel.getAllMarvelCharacters(page*LIMIT)
+                }
+            }
         })
     }
 

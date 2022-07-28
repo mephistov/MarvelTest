@@ -40,7 +40,6 @@ class CharacterDetailActivity : AppCompatActivity() {
             Glide
                 .with(baseContext)
                 .load(it.thumnail)
-                .centerCrop()
                 .placeholder(R.drawable.loading_marvel)
                 .into(binding.imageView2)
         })

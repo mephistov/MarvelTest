@@ -26,6 +26,7 @@ class MarvelViewModelTest{
     private lateinit var getMarvelCharactersByIdUseCase: GetMarvelCharactersByIdUseCase
 
     private lateinit var viewModel: MarvelViewModel
+    private val page = 0
 
     @get:Rule
     var rule: InstantTaskExecutorRule = InstantTaskExecutorRule()
@@ -49,10 +50,10 @@ class MarvelViewModelTest{
             MarvelCharacter(1,"name1","desc 1","image1"),
             MarvelCharacter(2,"name2","desc 2","image2"),
         )
-        coEvery { getMarvelCharactersUseCase() } returns listCharacters
+        coEvery { getMarvelCharactersUseCase(page) } returns listCharacters
 
         //When
-        viewModel.getAllMarvelCharacters()
+        viewModel.getAllMarvelCharacters(page)
 
         //Then
         assert(viewModel.charactersListModel.value == listCharacters)
@@ -62,10 +63,10 @@ class MarvelViewModelTest{
     fun `when GetMarvelCharactersUseCase doesnt return a empty list livedata`() = runTest {
         //Given
         val listCharacters = emptyList<MarvelCharacter>()
-        coEvery { getMarvelCharactersUseCase() } returns listCharacters
+        coEvery { getMarvelCharactersUseCase(page) } returns listCharacters
 
         //When
-        viewModel.getAllMarvelCharacters()
+        viewModel.getAllMarvelCharacters(page)
 
         //Then
         assert(viewModel.charactersListModel.value == null)

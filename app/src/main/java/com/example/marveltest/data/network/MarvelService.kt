@@ -16,11 +16,12 @@ class MarvelService @Inject constructor(private val api:MarvelApiClient) {
         val PRIVATEKEY = "cc3e8cf8dd89ed371a915ba35c7119a432bc0d1b"
     }
 
-    suspend fun getCharacters(): MarvelModel {
+    suspend fun getCharacters(page: Int): MarvelModel {
         return withContext(Dispatchers.IO) {
             val ts = "${Date().time}"
             val response = api.getMarvelCharacters(
                 apikey = PUBLICKEY,
+                offset = page,
                 ts = ts,
                 hash = getHas(ts)
             )

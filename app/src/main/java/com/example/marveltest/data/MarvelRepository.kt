@@ -9,8 +9,8 @@ import javax.inject.Inject
 class MarvelRepository @Inject constructor(
     private val api: MarvelService
 ){
-    suspend fun getAllCharactersFromApi(): List<MarvelCharacter> {
-        val response: MarvelModel = api.getCharacters()
+    suspend fun getAllCharactersFromApi(page: Int): List<MarvelCharacter> {
+        val response: MarvelModel = api.getCharacters(page)
         val dataMarvel = response.dataMarvel
         if(dataMarvel != null){
             return dataMarvel.resultCharacters.map { it.toMarvelCharacter() }

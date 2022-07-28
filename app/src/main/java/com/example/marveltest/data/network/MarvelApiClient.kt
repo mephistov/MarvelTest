@@ -11,6 +11,8 @@ interface MarvelApiClient {
     @GET("/v1/public/characters")
     suspend fun getMarvelCharacters(
         @Query("ts") ts: String,
+        @Query("limit") limit: Int = 20,
+        @Query("offset") offset: Int = 0,
         @Query("apikey") apikey: String,
         @Query("hash") hash: String
     ): Response<MarvelModel>

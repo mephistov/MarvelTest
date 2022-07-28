@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class GetMarvelCharactersUseCase @Inject constructor(private val repository: MarvelRepository) {
 
-    suspend operator fun invoke():List<MarvelCharacter>{
-        return repository.getAllCharactersFromApi()
+    suspend operator fun invoke(page: kotlin.Int):List<MarvelCharacter>{
+        return repository.getAllCharactersFromApi(page)
     }
 }

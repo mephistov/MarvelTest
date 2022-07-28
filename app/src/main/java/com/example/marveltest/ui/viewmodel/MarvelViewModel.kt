@@ -20,10 +20,10 @@ class MarvelViewModel @Inject constructor(
     val isLoading = MutableLiveData<Boolean>()
     val characterModel = MutableLiveData<MarvelCharacter>()
 
-    fun getAllMarvelCharacters() {
+    fun getAllMarvelCharacters(page:Int) {
         viewModelScope.launch {
             isLoading.postValue(true)
-            val result = getMarvelCharactersUseCase()
+            val result = getMarvelCharactersUseCase.invoke(page)
 
             if (!result.isNullOrEmpty()) {
                 charactersListModel.postValue(result)

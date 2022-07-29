@@ -4,12 +4,13 @@ import com.example.data.mappers.toMarvelCharacter
 import com.example.data.model.MarvelModel
 import com.example.data.network.MarvelService
 import com.example.domain.entities.MarvelCharacter
+import com.example.domain.repository.MarvelRepository
 import javax.inject.Inject
 
-class MarvelRepository @Inject constructor(
+class MarvelRepositoryImp @Inject constructor(
     private val api: MarvelService
-){
-    suspend fun getAllCharactersFromApi(page: Int): List<MarvelCharacter> {
+):MarvelRepository{
+    override suspend fun getAllCharactersFromApi(page: Int): List<MarvelCharacter> {
         val response: MarvelModel = api.getCharacters(page)
         val dataMarvel = response.dataMarvel
         if(dataMarvel != null){
@@ -19,7 +20,7 @@ class MarvelRepository @Inject constructor(
         return emptyList()
     }
 
-    suspend fun getCharactersByIdFromApi(id:Int):List<MarvelCharacter>{
+    override suspend fun getCharactersByIdFromApi(id:Int):List<MarvelCharacter>{
         val response: MarvelModel = api.getCharacterById(id)
         val dataMarvel = response.dataMarvel
         if(dataMarvel != null){

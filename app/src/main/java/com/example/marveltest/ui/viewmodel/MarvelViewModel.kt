@@ -3,9 +3,9 @@ package com.example.marveltest.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.entities.MarvelCharacter
 import com.example.domain.usescases.GetMarvelCharactersByIdUseCase
 import com.example.domain.usescases.GetMarvelCharactersUseCase
-import com.example.domain.entities.MarvelCharacter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

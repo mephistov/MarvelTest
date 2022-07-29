@@ -1,8 +1,8 @@
 package com.example.marveltest.domain
 
-import com.example.domain.usescases.GetMarvelCharactersByIdUseCase
 import com.example.data.repository.MarvelRepositoryImp
 import com.example.domain.entities.MarvelCharacter
+import com.example.domain.usescases.GetMarvelCharactersByIdUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

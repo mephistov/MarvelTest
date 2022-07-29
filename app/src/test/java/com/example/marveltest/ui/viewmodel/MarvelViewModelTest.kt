@@ -1,9 +1,9 @@
 package com.example.marveltest.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.domain.entities.MarvelCharacter
 import com.example.domain.usescases.GetMarvelCharactersByIdUseCase
 import com.example.domain.usescases.GetMarvelCharactersUseCase
-import com.example.domain.entities.MarvelCharacter
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK

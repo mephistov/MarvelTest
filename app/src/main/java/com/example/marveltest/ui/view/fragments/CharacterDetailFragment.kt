@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class CharacterDetailFragment : Fragment() {
+class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
 
     private lateinit var binding: FragmentCharacterDetailBinding
     private val marvelViewModel: MarvelViewModel by viewModels()
@@ -39,14 +39,10 @@ class CharacterDetailFragment : Fragment() {
             binding.progressBar2.visibility = if (it) View.VISIBLE else View.GONE
         })
         marvelViewModel.characterModel.observe(this, Observer {
-            binding.textView.text = it.name
-            if (it.description != "")
-                binding.textView2.text = it.description
-            Glide
-                .with(requireContext())
-                .load(it.thumnail)
-                .placeholder(R.drawable.loading_marvel)
-                .into(binding.imageView2)
+            it.fixDescption(requireContext())
+            binding.characterFragment = it
+
+
         })
     }
 

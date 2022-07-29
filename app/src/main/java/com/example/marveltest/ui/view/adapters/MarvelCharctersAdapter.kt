@@ -10,7 +10,7 @@ import com.example.marveltest.R
 import com.example.marveltest.core.RowOptions
 import com.example.marveltest.core.adapters.BaseViewHolder
 import com.example.marveltest.databinding.RowChararcterBinding
-import com.example.marveltest.domain.model.MarvelCharacter
+import com.example.domain.entities.MarvelCharacter
 import com.example.marveltest.core.adapters.interfaze.RecyclerViewOnItemClickListener
 import com.example.marveltest.databinding.RowFooterBinding
 

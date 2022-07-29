@@ -1,13 +1,13 @@
 package com.example.marveltest.domain
 
-import com.example.marveltest.data.MarvelRepository
-import com.example.marveltest.domain.model.MarvelCharacter
+import com.example.domain.usescases.GetMarvelCharactersByIdUseCase
+import com.example.data.repository.MarvelRepository
+import com.example.domain.entities.MarvelCharacter
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 

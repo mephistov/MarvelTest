@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/marvel_navigation"
+    app:startDestination="@id/marvelMainFragment">
+
+    <fragment
+        android:id="@+id/marvelMainFragment"
+        android:name="com.example.marveltest.ui.view.fragments.MarvelMainFragment"
+        android:label="fragment_marvel_main"
+        tools:layout="@layout/fragment_marvel_main" >
+        <action
+            android:id="@+id/action_marvelMainFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" >
+
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.example.marveltest.ui.view.fragments.CharacterDetailFragment"
+        android:label="fragment_character_detail"
+        tools:layout="@layout/fragment_character_detail" >
+
+        <argument
+            android:name="characterInfo"
+            app:argType="integer"
+            android:defaultValue="0" />
+
+    </fragment>
+</navigation>

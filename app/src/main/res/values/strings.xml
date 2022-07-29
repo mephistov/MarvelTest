@@ -2,4 +2,6 @@
     <string name="app_name">MarvelTest</string>
     <string name="noData">No data available for the moment</string>
     <string name="loadingMore">Loanding more...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

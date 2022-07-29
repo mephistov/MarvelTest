@@ -15,7 +15,7 @@ data class MarvelCharacter(
 )
 
 @BindingAdapter("descriptionCharacter")
-fun changeDescription(description: TextView, descr:String){
+fun changeDescription(description: TextView, descr:String?){
     if(descr == "")
         description.text = description.context.getString(R.string.noData)
     else

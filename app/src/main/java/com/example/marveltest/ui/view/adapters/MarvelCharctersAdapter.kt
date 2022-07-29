@@ -45,7 +45,6 @@ class MarvelCharctersAdapter(
 
     override fun getItemViewType(position: Int): Int {
         if(position == listCharacters.size-1){
-            Log.e("ULTIMO","SI muestra footer")
             return RowOptions.FOOTER.opc
         }
 
@@ -64,9 +63,7 @@ class FooterViewHolder(
         }
     }
 
-    override fun bindTo(model: MarvelCharacter) {
-        Log.e("BINDING","COrrecto")
-    }
+    override fun bindTo(model: MarvelCharacter) {}
 }
 
 class MarvelViewHolder(

@@ -5,11 +5,9 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.marveltest.R
 import com.example.marveltest.databinding.ActivityCharacterDetailBinding
-import com.example.marveltest.ui.view.adapters.MarvelCharctersAdapter
 import com.example.marveltest.ui.viewmodel.MarvelViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

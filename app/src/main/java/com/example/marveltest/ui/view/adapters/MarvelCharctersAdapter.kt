@@ -4,9 +4,7 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.domain.entities.MarvelCharacter
-import com.example.marveltest.R
 import com.example.marveltest.core.RowOptions
 import com.example.marveltest.core.adapters.BaseViewHolder
 import com.example.marveltest.core.adapters.interfaze.RecyclerViewOnItemClickListener
@@ -86,18 +84,8 @@ class MarvelViewHolder(
     private var onItemClickListener: RecyclerViewOnItemClickListener<MarvelCharacter>? = null
 
     override fun bindTo(model: MarvelCharacter) {
+        binding.characterAdapter = model
         marvelCharacter = model
-        binding.textViewName.text = model.name
-        if (model.description != "")
-            binding.textViewShortDescription.text =  model.description
-        else
-            binding.textViewShortDescription.text = context.getString(R.string.noData)
-
-        Glide
-            .with(context)
-            .load(model.thumnail)
-            .placeholder(R.drawable.loading_marvel)
-            .into(binding.imageView)
 
     }
 

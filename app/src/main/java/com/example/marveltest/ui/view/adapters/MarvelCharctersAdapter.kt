@@ -1,17 +1,14 @@
 package com.example.marveltest.ui.view.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.marveltest.R
+import com.example.domain.entities.MarvelCharacter
 import com.example.marveltest.core.RowOptions
 import com.example.marveltest.core.adapters.BaseViewHolder
-import com.example.marveltest.databinding.RowChararcterBinding
-import com.example.marveltest.domain.model.MarvelCharacter
 import com.example.marveltest.core.adapters.interfaze.RecyclerViewOnItemClickListener
+import com.example.marveltest.databinding.RowChararcterBinding
 import com.example.marveltest.databinding.RowFooterBinding
 
 class MarvelCharctersAdapter(
@@ -45,7 +42,6 @@ class MarvelCharctersAdapter(
 
     override fun getItemViewType(position: Int): Int {
         if(position == listCharacters.size-1){
-            Log.e("ULTIMO","SI muestra footer")
             return RowOptions.FOOTER.opc
         }
 
@@ -64,9 +60,7 @@ class FooterViewHolder(
         }
     }
 
-    override fun bindTo(model: MarvelCharacter) {
-        Log.e("BINDING","COrrecto")
-    }
+    override fun bindTo(model: MarvelCharacter) {}
 }
 
 class MarvelViewHolder(
@@ -90,18 +84,8 @@ class MarvelViewHolder(
     private var onItemClickListener: RecyclerViewOnItemClickListener<MarvelCharacter>? = null
 
     override fun bindTo(model: MarvelCharacter) {
+        binding.characterAdapter = model
         marvelCharacter = model
-        binding.textViewName.text = model.name
-        if (model.description != "")
-            binding.textViewShortDescription.text =  model.description
-        else
-            binding.textViewShortDescription.text = context.getString(R.string.noData)
-
-        Glide
-            .with(context)
-            .load(model.thumnail)
-            .placeholder(R.drawable.loading_marvel)
-            .into(binding.imageView)
 
     }
 

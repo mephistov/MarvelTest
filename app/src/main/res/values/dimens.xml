@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="row_image">100dp</dimen>
+    <dimen name="margin_object">20dp</dimen>
+    <dimen name="margin_text">8dp</dimen>
+    <dimen name="match_contraint">0dp</dimen>
+    <dimen name="title_text">20sp</dimen>
+    <dimen name="descroption_size">20sp</dimen>
+    <dimen name="big_image">200dp</dimen>
+</resources>

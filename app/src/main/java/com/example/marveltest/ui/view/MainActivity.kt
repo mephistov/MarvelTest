@@ -1,18 +1,17 @@
 package com.example.marveltest.ui.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.marveltest.databinding.ActivityMainBinding
-import com.example.marveltest.domain.model.MarvelCharacter
-import com.example.marveltest.ui.view.adapters.MarvelCharctersAdapter
+import com.example.domain.entities.MarvelCharacter
 import com.example.marveltest.core.adapters.interfaze.RecyclerViewOnItemClickListener
+import com.example.marveltest.databinding.ActivityMainBinding
+import com.example.marveltest.ui.view.adapters.MarvelCharctersAdapter
 import com.example.marveltest.ui.viewmodel.MarvelViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

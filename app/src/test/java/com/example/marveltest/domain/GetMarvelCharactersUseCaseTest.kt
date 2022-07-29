@@ -1,7 +1,8 @@
 package com.example.marveltest.domain
 
-import com.example.marveltest.data.MarvelRepository
-import com.example.marveltest.domain.model.MarvelCharacter
+import com.example.data.repository.MarvelRepositoryImp
+import com.example.domain.entities.MarvelCharacter
+import com.example.domain.usescases.GetMarvelCharactersUseCase
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -14,40 +15,40 @@ import org.junit.Test
 class GetMarvelCharactersUseCaseTest{
 
     @RelaxedMockK
-    private lateinit var repository: MarvelRepository
+    private lateinit var repositoryImp: MarvelRepositoryImp
     lateinit var getMarvelCharactersUseCase: GetMarvelCharactersUseCase
     private val page = 0
 
     @Before
     fun onBefore(){
         MockKAnnotations.init(this)
-        getMarvelCharactersUseCase = GetMarvelCharactersUseCase(repository)
+        getMarvelCharactersUseCase = GetMarvelCharactersUseCase(repositoryImp)
     }
 
     @Test
     fun `when the api doesnt return anything`() = runBlocking {
         val emptyLisy = emptyList<MarvelCharacter>()
         //Given
-        coEvery { repository.getAllCharactersFromApi(page) } returns emptyLisy
+        coEvery { repositoryImp.getAllCharactersFromApi(page) } returns emptyLisy
 
         //When
         val response = getMarvelCharactersUseCase(page)
 
         //Then
-        coVerify(exactly = 1) { repository.getAllCharactersFromApi(page) }
+        coVerify(exactly = 1) { repositoryImp.getAllCharactersFromApi(page) }
         assert(response == emptyLisy)
     }
     @Test
     fun `when the api return something then get values from api`() = runBlocking {
         //Given
         val myList = listOf(MarvelCharacter(12345, "AristiDevs","some description","imagen.png"))
-        coEvery { repository.getAllCharactersFromApi(page) } returns myList
+        coEvery { repositoryImp.getAllCharactersFromApi(page) } returns myList
 
         //When
         val response = getMarvelCharactersUseCase(page)
 
         //Then
-        coVerify(exactly = 1) { repository.getAllCharactersFromApi(page) }
+        coVerify(exactly = 1) { repositoryImp.getAllCharactersFromApi(page) }
         assert(response == myList)
     }
 }

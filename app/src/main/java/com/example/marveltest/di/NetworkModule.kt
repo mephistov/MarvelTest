@@ -1,6 +1,6 @@
 package com.example.marveltest.di
 
-import com.example.marveltest.data.network.MarvelApiClient
+import com.example.data.network.MarvelApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,7 +31,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideQuoteApiClient(retrofit: Retrofit):MarvelApiClient{
+    fun provideQuoteApiClient(retrofit: Retrofit): MarvelApiClient {
         return retrofit.create(MarvelApiClient::class.java)
     }
 

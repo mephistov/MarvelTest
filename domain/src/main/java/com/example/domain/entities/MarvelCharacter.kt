@@ -1,6 +1,5 @@
 package com.example.domain.entities
 
-import android.content.Context
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -13,16 +12,10 @@ data class MarvelCharacter(
     val name:String,
     var description: String,
     val thumnail: String
-) {
-    fun fixDescption(context: Context) {
-        if(description == "")
-            description = context.getString(R.string.noData)
-
-    }
-}
+)
 
 @BindingAdapter("descriptionCharacter")
-fun changeDescription(description: TextView, descr:String){
+fun changeDescription(description: TextView, descr:String?){
     if(descr == "")
         description.text = description.context.getString(R.string.noData)
     else

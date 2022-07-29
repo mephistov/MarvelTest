@@ -62,9 +62,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_text"
                 android:layout_marginTop="@dimen/margin_object"
+                app:descriptionCharacter="@{characterFragment.description}"
                 android:layout_marginEnd="@dimen/margin_text"
                 android:textSize="@dimen/descroption_size"
-                android:text="@{characterFragment.description}"
+
 
                 />
         </LinearLayout>

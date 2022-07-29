@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
 import com.example.marveltest.R
 import com.example.marveltest.databinding.FragmentCharacterDetailBinding
 import com.example.marveltest.ui.viewmodel.MarvelViewModel
@@ -39,10 +38,7 @@ class CharacterDetailFragment : Fragment(R.layout.fragment_character_detail) {
             binding.progressBar2.visibility = if (it) View.VISIBLE else View.GONE
         })
         marvelViewModel.characterModel.observe(this, Observer {
-            it.fixDescption(requireContext())
             binding.characterFragment = it
-
-
         })
     }
 

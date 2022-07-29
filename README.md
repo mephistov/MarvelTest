@@ -5,6 +5,14 @@ It loads from marvels api all 1530 characters separated by 20 per page and you c
 
 The proyect has MVVM and clean arquitecture 
 
+Modules structure
+
+data/view binding
+
+activity / fragments
+
+unit testing
+
 Retrofit, Dependenci inyection 
 
 Some of the SOLID principles 

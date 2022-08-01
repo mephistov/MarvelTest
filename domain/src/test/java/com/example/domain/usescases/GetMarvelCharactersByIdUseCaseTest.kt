@@ -1,8 +1,7 @@
-package com.example.marveltest.domain
+package com.example.domain.usescases
 
-import com.example.data.repository.MarvelRepositoryImp
 import com.example.domain.entities.MarvelCharacter
-import com.example.domain.usescases.GetMarvelCharactersByIdUseCase
+import com.example.domain.repository.MarvelRepository
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -12,8 +11,9 @@ import org.junit.Before
 import org.junit.Test
 
 class GetMarvelCharactersByIdUseCaseTest{
+
     @RelaxedMockK
-    private lateinit var repositoryImp: MarvelRepositoryImp
+    private lateinit var repositoryImp: MarvelRepository
     lateinit var getMarvelCharactersByIdUseCase: GetMarvelCharactersByIdUseCase
 
     @Before
@@ -48,4 +48,6 @@ class GetMarvelCharactersByIdUseCaseTest{
         coVerify(exactly = 1) { repositoryImp.getCharactersByIdFromApi(1234) }
         assert(response == myList)
     }
+
+
 }

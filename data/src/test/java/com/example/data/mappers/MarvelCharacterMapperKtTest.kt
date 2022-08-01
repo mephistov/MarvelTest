@@ -4,7 +4,6 @@ import com.example.data.model.*
 import com.example.domain.entities.MarvelCharacter
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsInstanceOf.instanceOf
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 

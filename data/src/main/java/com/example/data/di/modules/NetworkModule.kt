@@ -1,4 +1,4 @@
-package com.example.marveltest.di
+package com.example.data.di.modules
 
 import com.example.data.network.MarvelApiClient
 import dagger.Module
